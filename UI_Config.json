@@ -1,0 +1,97 @@
+{
+    "output_file": "config.json",
+    
+    "offlineOnly": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Offline Only Mode",
+        "tooltip": "True if you want it to only run when you aren't streaming",
+        "group" : "General"
+    },
+    "command": {
+        "type": "textbox",
+        "value": "!hostme",
+        "label": "Command",
+        "tooltip": "Name of the command to swap scene",
+        "group": "General"
+    },
+    "scene1": {
+        "type": "textbox",
+        "value": "scene_name",
+        "label": "Swap Scene",
+        "tooltip": "Scene you want the command to swap to",
+        "group": "General"
+    },	
+    "scene2": {
+        "type": "textbox",
+        "value": "scene_name",
+        "label": "Return Scene",
+        "tooltip": "Scene you want to return to after given delay",
+        "group": "General"
+    },	
+    "sceneDelay": {
+        "type": "textbox",
+        "value": "5000",
+        "label": "Hold Scene",
+        "tooltip": "How many seconds to hold on your new scene",
+        "group": "General"
+    },	
+    "sceneChangeMessage": {
+        "type": "textbox",
+        "value": "5000",
+        "label": "Response when swapping to scene",
+        "tooltip": "When a scene is swapping to scene 1.",
+        "group": "General"
+    },	
+    "sceneReturnMessage": {
+        "type": "textbox",
+        "value": "5000",
+        "label": "Response when returning to scene",
+        "tooltip": "When a scene returns to scene 2.",
+        "group": "General"
+    },			
+    "permission": {
+        "type": "dropdown",
+        "value": "Everyone",
+        "items": ["Everyone","Regular","Subscriber","Moderator","Editor"],
+        "label": "Permission level",
+        "tooltip": "Set the permission level for the command",
+        "group": "General"
+    },
+    "useCooldown": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Use Cooldowns",
+        "tooltip": "Enable/Disable cooldown and user cooldown",
+        "group": "Cooldown"
+    },
+    "useCooldownMessages": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Use Cooldown Messages",
+        "tooltip": "Enable/Disable cooldown messages",
+        "group": "Cooldown"
+    },
+    "cooldown": {
+        "type": "numberbox",
+        "label": "Cooldown (seconds)",
+        "value": 1,
+        "tooltip": "Cooldown in seconds.",
+        "group": "Cooldown"
+    },
+    "onCooldown": {
+        "type": "textbox",
+        "value": "$user, $command is still on cooldown for $cd minutes!",
+        "label": "Cooldown Response",
+        "tooltip": "Message that the bot will display when the command is on cooldown. \r\n $user = Username \r\n $cd = Time remaining \r\n $command = Command name",
+        "group": "Cooldown"
+    },
+    "openReadMe": {
+        "type": "button",
+        "label": "Open 'Readme Me' file",
+        "tooltip": "Opens the 'Readme.txt' for this script.",
+        "function": "OpenReadMe",
+        "wsevent": "",
+        "group": ""
+    }
+}
