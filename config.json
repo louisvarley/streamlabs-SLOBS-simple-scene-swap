@@ -3,15 +3,15 @@
   "command": "!swap",
   "permission": "Everyone",
   "costs": 0,
-  "delay": 15,
-  "scene1": "PouchCam",
-  "scene2": "Streaming Multi",
-  "useCooldown": false,
+  "delay": 30,
+  "scene1": "game",
+  "scene2": "cam",
+  "useCooldown": true,
   "useCooldownMessages": true,
-  "cooldown": 1,
+  "cooldown": 60,
   "onCooldown": "$user, $command is still on cooldown for $cd minutes!",
-  "userCooldown": 120,
+  "userCooldown": 300,
   "onUserCooldown": "$user, $command is still on user cooldown for $cd minutes!",
   "responseNotEnoughPoints": "$user you need $cost $currency to use $command.",
-  "responseOnSuccess": "$user has called for a scene swap."
+  "responseOnSuccess": "$user has called for a scene swap to $scene1 for $delay seconds."
 }

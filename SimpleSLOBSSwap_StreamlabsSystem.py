@@ -21,7 +21,7 @@ def ScriptToggled(state):
 	return
 
 def Init():
-	global settings, commandLength, bridgeParams
+	global settings, commandLength, bridgeParams, ScriptName
 
 	path = os.path.dirname(__file__)
 	try:
@@ -43,7 +43,7 @@ def Init():
 			"userCooldown": 300,
 			"onUserCooldown": "$user $command is still on user cooldown for $cd minutes!",
 			"responseNotEnoughPoints": "$user you need $cost $currency to use $command.",
-			"responseOnSuccess": "$user has called for a scene swap.",			
+			"responseOnSuccess": "$user has called for a scene swap to $scene1 for $delay seconds.",			
 		}
 	
 	commandLength = len(settings["command"]) + 1
@@ -80,7 +80,7 @@ def Execute(data):
 			userMessage = data.Message[commandLength:]
 
 			command = "{0} swap_scenes \"{1}\" {2} \"{3}\"".format(bridgeParams, settings["scene1"], settings["delay"], settings["scene2"])
-
+			Parent.Log(ScriptName,command)
 			os.popen(command)
 
 			if settings["useCooldown"]:
@@ -89,6 +89,9 @@ def Execute(data):
 
 		outputMessage = outputMessage.replace("$cost", str(costs))
 		outputMessage = outputMessage.replace("$user", username)
+		outputMessage = outputMessage.replace("$delay", str(settings["delay"]))	
+		outputMessage = outputMessage.replace("$scene1", settings["scene1"])
+		outputMessage = outputMessage.replace("$scene2", settings["scene2"])		
 		outputMessage = outputMessage.replace("$points", str(points))
 		outputMessage = outputMessage.replace("$currency", Parent.GetCurrencyName())
 		outputMessage = outputMessage.replace("$command", settings["command"])
