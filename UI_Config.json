@@ -1,61 +1,54 @@
 {
     "output_file": "config.json",
-    
-    "offlineOnly": {
+
+    "liveOnly": {
         "type": "checkbox",
         "value": true,
-        "label": "Offline Only Mode",
-        "tooltip": "True if you want it to only run when you aren't streaming",
+        "label": "Live Only Mode",
+        "tooltip": "True if you want it to only run when you are live",
         "group" : "General"
     },
     "command": {
         "type": "textbox",
-        "value": "!hostme",
+        "value": "!swap",
         "label": "Command",
-        "tooltip": "Name of the command to swap scene",
+        "tooltip": "Name of the command",
         "group": "General"
     },
-    "scene1": {
-        "type": "textbox",
-        "value": "scene_name",
-        "label": "Swap Scene",
-        "tooltip": "Scene you want the command to swap to",
-        "group": "General"
-    },	
-    "scene2": {
-        "type": "textbox",
-        "value": "scene_name",
-        "label": "Return Scene",
-        "tooltip": "Scene you want to return to after given delay",
-        "group": "General"
-    },	
-    "sceneDelay": {
-        "type": "textbox",
-        "value": "5000",
-        "label": "Hold Scene",
-        "tooltip": "How many seconds to hold on your new scene",
-        "group": "General"
-    },	
-    "sceneChangeMessage": {
-        "type": "textbox",
-        "value": "5000",
-        "label": "Response when swapping to scene",
-        "tooltip": "When a scene is swapping to scene 1.",
-        "group": "General"
-    },	
-    "sceneReturnMessage": {
-        "type": "textbox",
-        "value": "5000",
-        "label": "Response when returning to scene",
-        "tooltip": "When a scene returns to scene 2.",
-        "group": "General"
-    },			
     "permission": {
         "type": "dropdown",
         "value": "Everyone",
         "items": ["Everyone","Regular","Subscriber","Moderator","Editor"],
         "label": "Permission level",
         "tooltip": "Set the permission level for the command",
+        "group": "General"
+    },
+    "costs": {
+        "type": "numberbox",
+        "value": 100,
+        "label": "Cost to swap scene",
+        "tooltip": "Set the default cost for this command.",
+        "group": "General"
+    },
+    "delay": {
+        "type": "numberbox",
+        "value": "5",
+        "label": "Hold scene for seconds",
+        "tooltip": "Scene will remain swapped for this many seconds",
+        "group": "General"
+    },
+    "scene1": {
+        "type": "textbox",
+        "value": "New Scene",
+        "label": "Swap to this scene",
+        "tooltip": "Swap to this scene when command is given.",
+        "group": "General"
+    },
+    "scene2": {
+        "type": "textbox",
+        "value": "Old Scene",
+        "label": "Return to this scene",
+        "tooltip": "After the given delay, this scene will be swapped back to.",
         "group": "General"
     },
     "useCooldown": {
@@ -83,8 +76,36 @@
         "type": "textbox",
         "value": "$user, $command is still on cooldown for $cd minutes!",
         "label": "Cooldown Response",
-        "tooltip": "Message that the bot will display when the command is on cooldown. \r\n $user = Username \r\n $cd = Time remaining \r\n $command = Command name",
+        "tooltip": "The message that the bot will display when the command is on cooldown. \r\n $user = Username \r\n $cd = Time remaining \r\n $command = Command name",
         "group": "Cooldown"
+    },
+    "userCooldown": {
+        "type": "numberbox",
+        "label": "User Cooldown (seconds)",
+        "value": 120,
+        "tooltip": "User cooldown in seconds.",
+        "group": "Cooldown"
+    },
+    "onUserCooldown": {
+        "type": "textbox",
+        "value": "$user, $command is still on user cooldown for $cd minutes!",
+        "label": "User Cooldown Response",
+        "tooltip": "The message that the bot will display when the command is on user cooldown. \r\n $user = Username \r\n $cd = Time remaining \r\n $command = Command name",
+        "group": "Cooldown"
+    },
+    "responseNotEnoughPoints": {
+        "type": "textbox",
+        "value": "$user you need $cost $currency to use $command.",
+        "label": "Not enough points",
+        "tooltip": "Message that will be posted if the user doesn't have enough points.\r\n $user = Username\r\n $points = Current user points\r\n $currency = Name of Currency\r\n $cost = Cost to use the command",
+        "group": "Response Messages"
+    },
+    "responseOnSuccess": {
+        "type": "textbox",
+        "value": "$user has called for a scene swap.",
+        "label": "Success Response",
+        "tooltip": "Message that will be posted if the a user has successfully called for a scene swap",
+        "group": "Response Messages"
     },
     "openReadMe": {
         "type": "button",

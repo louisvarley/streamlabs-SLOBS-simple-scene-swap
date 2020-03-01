@@ -1,14 +1,17 @@
 ﻿var settings = {
-  "offlineOnly": false,
+  "liveOnly": false,
   "command": "!swap",
-  "scene1": "Intro",
-  "scene2": "Streaming Multi",
-  "sceneDelay": "5",
-  "sceneChangeMessage": "$user has asked to see the Pouchies",
-  "sceneReturnMessage": "",
   "permission": "Everyone",
-  "useCooldown": true,
+  "costs": 0,
+  "delay": 15,
+  "scene1": "PouchCam",
+  "scene2": "Streaming Multi",
+  "useCooldown": false,
   "useCooldownMessages": true,
   "cooldown": 1,
-  "onCooldown": "$user, $command is still on cooldown for $cd minutes!"
+  "onCooldown": "$user, $command is still on cooldown for $cd minutes!",
+  "userCooldown": 120,
+  "onUserCooldown": "$user, $command is still on user cooldown for $cd minutes!",
+  "responseNotEnoughPoints": "$user you need $cost $currency to use $command.",
+  "responseOnSuccess": "$user has called for a scene swap."
 };
