@@ -75,12 +75,13 @@ def Execute(data):
 		else:
 			Parent.RemovePoints(userId, username, costs)
 
+			outputMessage = settings["responseOnSuccess"]
+			
 			userMessage = data.Message[commandLength:]
 
 			command = "{0} swap_scenes \"{1}\" {2} \"{3}\"".format(bridgeParams, settings["scene1"], settings["delay"], settings["scene2"])
-			
-			Parent.SendStreamMessage(settings["responseOnSuccess"])
-			Parent.Log(ScriptName,os.popen(command).read())		
+
+			os.popen(command)
 
 			if settings["useCooldown"]:
 				Parent.AddUserCooldown(ScriptName, settings["command"], userId, settings["userCooldown"])
